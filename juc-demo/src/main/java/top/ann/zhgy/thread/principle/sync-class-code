@@ -1,0 +1,129 @@
+Classfile /Users/ann-zhgy/IdeaProjects/study-demo/juc-demo/target/classes/com/sankuai/thread/principle/SyncDemo.class
+  Last modified 2023年10月20日; size 762 bytes
+  SHA-256 checksum 465a3d6813f1578c66c6aa22fa2ded0409ea311ae2d56f8c1519d29b187ee4c0
+  Compiled from "SyncDemo.java"
+public class com.sankuai.thread.principle.SyncDemo
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #8                          // com/sankuai/thread/principle/SyncDemo
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 1, methods: 3, attributes: 1
+Constant pool:
+   #1 = Methodref          #2.#26         // java/lang/Object."<init>":()V
+   #2 = Class              #27            // java/lang/Object
+   #3 = Fieldref           #8.#28         // com/sankuai/thread/principle/SyncDemo.lock:Ljava/lang/Object;
+   #4 = Fieldref           #29.#30        // java/lang/System.out:Ljava/io/PrintStream;
+   #5 = String             #31            // sync
+   #6 = Methodref          #32.#33        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #7 = Methodref          #8.#34         // com/sankuai/thread/principle/SyncDemo.fun2:()V
+   #8 = Class              #35            // com/sankuai/thread/principle/SyncDemo
+   #9 = Utf8               lock
+  #10 = Utf8               Ljava/lang/Object;
+  #11 = Utf8               <init>
+  #12 = Utf8               ()V
+  #13 = Utf8               Code
+  #14 = Utf8               LineNumberTable
+  #15 = Utf8               LocalVariableTable
+  #16 = Utf8               this
+  #17 = Utf8               Lcom/sankuai/thread/principle/SyncDemo;
+  #18 = Utf8               fun
+  #19 = Utf8               StackMapTable
+  #20 = Class              #35            // com/sankuai/thread/principle/SyncDemo
+  #21 = Class              #27            // java/lang/Object
+  #22 = Class              #36            // java/lang/Throwable
+  #23 = Utf8               fun2
+  #24 = Utf8               SourceFile
+  #25 = Utf8               SyncDemo.java
+  #26 = NameAndType        #11:#12        // "<init>":()V
+  #27 = Utf8               java/lang/Object
+  #28 = NameAndType        #9:#10         // lock:Ljava/lang/Object;
+  #29 = Class              #37            // java/lang/System
+  #30 = NameAndType        #38:#39        // out:Ljava/io/PrintStream;
+  #31 = Utf8               sync
+  #32 = Class              #40            // java/io/PrintStream
+  #33 = NameAndType        #41:#42        // println:(Ljava/lang/String;)V
+  #34 = NameAndType        #23:#12        // fun2:()V
+  #35 = Utf8               com/sankuai/thread/principle/SyncDemo
+  #36 = Utf8               java/lang/Throwable
+  #37 = Utf8               java/lang/System
+  #38 = Utf8               out
+  #39 = Utf8               Ljava/io/PrintStream;
+  #40 = Utf8               java/io/PrintStream
+  #41 = Utf8               println
+  #42 = Utf8               (Ljava/lang/String;)V
+{
+  public com.sankuai.thread.principle.SyncDemo();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: new           #2                  // class java/lang/Object
+         8: dup
+         9: invokespecial #1                  // Method java/lang/Object."<init>":()V
+        12: putfield      #3                  // Field lock:Ljava/lang/Object;
+        15: return
+      LineNumberTable:
+        line 8: 0
+        line 9: 4
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      16     0  this   Lcom/sankuai/thread/principle/SyncDemo;
+
+  public void fun();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=3, args_size=1
+         0: aload_0
+         1: getfield      #3                  // Field lock:Ljava/lang/Object;
+         4: dup
+         5: astore_1
+         6: monitorenter
+         7: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        10: ldc           #5                  // String sync
+        12: invokevirtual #6                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        15: aload_1
+        16: monitorexit
+        17: goto          25
+        20: astore_2
+        21: aload_1
+        22: monitorexit
+        23: aload_2
+        24: athrow
+        25: invokestatic  #7                  // Method fun2:()V
+        28: return
+      Exception table:
+         from    to  target type
+             7    17    20   any
+            20    23    20   any
+      LineNumberTable:
+        line 12: 0
+        line 13: 7
+        line 14: 15
+        line 15: 25
+        line 16: 28
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      29     0  this   Lcom/sankuai/thread/principle/SyncDemo;
+      StackMapTable: number_of_entries = 2
+        frame_type = 255 /* full_frame */
+          offset_delta = 20
+          locals = [ class com/sankuai/thread/principle/SyncDemo, class java/lang/Object ]
+          stack = [ class java/lang/Throwable ]
+        frame_type = 250 /* chop */
+          offset_delta = 4
+
+  public static void fun2();
+    descriptor: ()V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=0, locals=0, args_size=0
+         0: return
+      LineNumberTable:
+        line 20: 0
+}
+SourceFile: "SyncDemo.java"
